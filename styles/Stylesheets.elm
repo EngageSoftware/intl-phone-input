@@ -1,6 +1,6 @@
 port module Stylesheets exposing (..)
 
-import Css.File exposing (CssCompilerProgram, CssFileStructure)
+import DEPRECATED.Css.File exposing (CssCompilerProgram, CssFileStructure)
 import IntlPhoneInput.Config.Default as Default
 import IntlPhoneInput.Css
 
@@ -10,9 +10,9 @@ port files : CssFileStructure -> Cmd msg
 
 fileStructure : CssFileStructure
 fileStructure =
-    Css.File.toFileStructure
+    DEPRECATED.Css.File.toFileStructure
         [ ( "intl-phone-input.css"
-          , Css.File.compile
+          , DEPRECATED.Css.File.compile
                 [ IntlPhoneInput.Css.css Default.namespace
                 ]
           )
@@ -21,4 +21,4 @@ fileStructure =
 
 main : CssCompilerProgram
 main =
-    Css.File.compiler files fileStructure
+    DEPRECATED.Css.File.compiler files fileStructure

@@ -6,7 +6,7 @@ module Demo.Css
 
 import Css exposing (..)
 import Css.Elements exposing (input)
-import Css.Namespace
+import DEPRECATED.Css.Namespace
 import IntlPhoneInput.Css exposing (Class(..))
 
 
@@ -17,9 +17,9 @@ type Class
     | FormField
 
 
-css : String -> Css.Stylesheet
+css : String -> DEPRECATED.Css.File
 css namespace =
-    (Css.stylesheet << Css.Namespace.namespace namespace)
+    (DEPRECATED.Css.File << DEPRECATED.Css.Namespace.namespace namespace)
         [ class Demo
             [ displayFlex
             , flexDirection column
@@ -60,6 +60,6 @@ css namespace =
         ]
 
 
-boxSizingMixin : Mixin
+boxSizingMixin : Style
 boxSizingMixin =
-    mixin [ boxSizing borderBox ]
+    batch [ boxSizing borderBox ]

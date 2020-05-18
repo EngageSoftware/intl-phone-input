@@ -1,13 +1,16 @@
 {
     "version": "1.0.0",
     "summary": "International phone number form input.",
-    "repository": "https://github.com/abadi199/intl-phone-input.git",
+    "repository": "https://github.com/EngageSoftware/intl-phone-input.git",
     "license": "Apache 2.0",
     "source-directories": [
         "src"
     ],
     "exposed-modules": [
-      "IntlPhoneInput", "IntlPhoneInput.Config", "IntlPhoneInput.Css", "IntlPhoneInput.Type"
+        "IntlPhoneInput",
+        "IntlPhoneInput.Config",
+        "IntlPhoneInput.Css",
+        "IntlPhoneInput.Type"
     ],
     "dependencies": {
         "Skinney/murmur3": "2.0.4 <= v < 3.0.0",
@@ -15,7 +18,7 @@
         "elm-lang/dom": "1.1.1 <= v < 2.0.0",
         "elm-lang/html": "2.0.0 <= v < 3.0.0",
         "elm-lang/svg": "2.0.0 <= v < 3.0.0",
-        "rtfeldman/elm-css": "8.0.0 <= v < 9.0.0",
+        "rtfeldman/elm-css": "12.0.0 <= v < 13.0.0",
         "rtfeldman/elm-css-helpers": "2.0.0 <= v < 3.0.0"
     },
     "elm-version": "0.18.0 <= v < 0.19.0"

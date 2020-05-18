@@ -11,7 +11,9 @@ module IntlPhoneInput.Css
 -}
 
 import Css exposing (..)
-import Css.Namespace
+import Css.Foreign exposing (Snippet, class, withClass, descendants)
+import DEPRECATED.Css.Namespace
+import DEPRECATED.Css.File
 import Dict exposing (Dict)
 import IntlPhoneInput.Config.Default exposing (isoCodes)
 
@@ -49,9 +51,9 @@ type Class
         ]
 
 -}
-css : String -> Css.Stylesheet
+css : String -> DEPRECATED.Css.File.Stylesheet
 css namespace =
-    (Css.stylesheet << Css.Namespace.namespace namespace)
+    (DEPRECATED.Css.File.stylesheet << DEPRECATED.Css.Namespace.namespace namespace)
         [ intlPhoneInput ]
 
 
@@ -164,7 +166,7 @@ flag =
         )
 
 
-flagIso : String -> Mixin
+flagIso : String -> Style
 flagIso isoCode =
     withClass (FlagIso isoCode)
         [ Dict.get isoCode flagPositions |> Maybe.map (\( x, y ) -> backgroundPosition2 (px x) (px y)) |> Maybe.withDefault (backgroundPosition2 zero zero)
@@ -250,35 +252,35 @@ dialCode =
 -- MIXIN
 
 
-boxSizingMixin : Mixin
+boxSizingMixin : Style
 boxSizingMixin =
-    mixin [ boxSizing borderBox ]
+    batch [ boxSizing borderBox ]
 
 
-hoverMixin : Mixin
+hoverMixin : Style
 hoverMixin =
-    mixin
+    batch
         [ backgroundColor (rgba 0 0 0 0.075)
         , cursor pointer
         ]
 
 
-highlightedMixin : Mixin
+highlightedMixin : Style
 highlightedMixin =
-    mixin [ backgroundColor (rgba 0 0 0 0.15) ]
+    batch [ backgroundColor (rgba 0 0 0 0.15) ]
 
 
-buttonMixin : Mixin
+buttonMixin : Style
 buttonMixin =
-    mixin
+    batch
         [ border zero
         , backgroundColor (rgba 0 0 0 0)
         ]
 
 
-focusMixin : Mixin
+focusMixin : Style
 focusMixin =
-    mixin
+    batch
         []
 
 
